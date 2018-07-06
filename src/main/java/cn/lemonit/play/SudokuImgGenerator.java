@@ -4,13 +4,9 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTBody;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTDocument1;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSectPr;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -155,17 +151,6 @@ public class SudokuImgGenerator {
 
     private static void createWord(List<SudokuInfo> sudokuInfoList) {
         CustomXWPFDocument document = new CustomXWPFDocument();
-//        XWPFParagraph pic = document.createParagraph();
-//        pic.setAlignment(ParagraphAlignment.CENTER);
-
-//        CTDocument1 doc = document.getDocument();
-//        CTBody body = doc.getBody();
-//        if (!body.isSetSectPr()) {
-//            body.addNewSectPr();
-//        }
-//        CTSectPr section = body.getSectPr();
-//        section.getCols();
-
         try {
             for (int i = 0; i < sudokuInfoList.size(); i++) {
                 XWPFParagraph paragraph = document.createParagraph();
