@@ -26,14 +26,13 @@ public class CustomXWPFDocument extends XWPFDocument {
         super(in);
     }
 
-    public void createPicture(String blipId,int id, int width, int height) {
+    public void createPicture(XWPFParagraph paragraph, String blipId, int id, int width, int height) {
         final int EMU = 9525;
         width *= EMU;
         height *= EMU;
         //String blipId = getAllPictures().get(id).getPackageRelationship().getId();
 
-
-        CTInline inline = createParagraph().createRun().getCTR().addNewDrawing().addNewInline();
+        CTInline inline = paragraph.createRun().getCTR().addNewDrawing().addNewInline();
 
         String picXml = "" +
                 "<a:graphic xmlns:a=\"http://schemas.openxmlformats.org/drawingml/2006/main\">" +
@@ -66,7 +65,7 @@ public class CustomXWPFDocument extends XWPFDocument {
         XmlToken xmlToken = null;
         try {
             xmlToken = XmlToken.Factory.parse(picXml);
-        } catch(XmlException xe) {
+        } catch (XmlException xe) {
             xe.printStackTrace();
         }
         inline.set(xmlToken);
