@@ -7,6 +7,18 @@
     <groupId>cn.lemonit.play</groupId>
     <artifactId>sudoku-img-generator</artifactId>
     <version>1.0.0</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
@@ -14,6 +26,16 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.docx4j</groupId>
+            <artifactId>docx4j</artifactId>
+            <version>3.3.7</version>
         </dependency>
     </dependencies>
 
