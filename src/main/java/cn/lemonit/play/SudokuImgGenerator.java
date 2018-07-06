@@ -158,19 +158,19 @@ public class SudokuImgGenerator {
 //        XWPFParagraph pic = document.createParagraph();
 //        pic.setAlignment(ParagraphAlignment.CENTER);
 
-        CTDocument1 doc = document.getDocument();
-        CTBody body = doc.getBody();
-        if (!body.isSetSectPr()) {
-            body.addNewSectPr();
-        }
-        CTSectPr section = body.getSectPr();
-        section.getCols();
+//        CTDocument1 doc = document.getDocument();
+//        CTBody body = doc.getBody();
+//        if (!body.isSetSectPr()) {
+//            body.addNewSectPr();
+//        }
+//        CTSectPr section = body.getSectPr();
+//        section.getCols();
 
         try {
             for (int i = 0; i < sudokuInfoList.size(); i++) {
                 XWPFParagraph paragraph = document.createParagraph();
                 XWPFRun queNum = paragraph.createRun();
-                queNum.setText(String.valueOf(i));
+                queNum.setText(sudokuInfoList.get(i).getNumber());
                 String picId = document.addPictureData(
                         new FileInputStream(output + sudokuInfoList.get(i).getNumber() + "." + PNG)
                         , XWPFDocument.PICTURE_TYPE_PNG
