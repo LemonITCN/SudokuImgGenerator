@@ -61,7 +61,7 @@ public class SudokuImgGenerator {
             source = config.get("source");
             output = config.get("output");
             try {
-                List<SudokuInfo> sudokuInfoList = readFromExcel(source);
+                List<SudokuInfo> sudokuInfoList = readFromExcel();
                 System.out.println("从Excel中读取到" + sudokuInfoList.size() + "条数据");
                 for (SudokuInfo sudokuInfo : sudokuInfoList) {
                     generateImage(sudokuInfo);
@@ -77,12 +77,11 @@ public class SudokuImgGenerator {
     /**
      * 从EXCEL中读取数据
      *
-     * @param sourcePath excel源文件的路径
      * @return 读取到的数据列表
      * @throws Exception 任何exception
      */
-    private static List<SudokuInfo> readFromExcel(String sourcePath) throws Exception {
-        InputStream inputStream = new FileInputStream(sourcePath);
+    private static List<SudokuInfo> readFromExcel() throws Exception {
+        InputStream inputStream = new FileInputStream(source);
         XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
         List<SudokuInfo> sudokuInfoList = new ArrayList<>();
         for (int i = 0; i < workbook.getNumberOfSheets(); i++) {
